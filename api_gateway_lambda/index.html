@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Site Scraping</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgEAIAAACsiDHgAAAFcElEQVRYw+2YTWwUZRjHf890t1pbdnZ3tnURY6AxfiZ+BhVi1MQohS3GmAKVTSQxMY1I1NiDBy+eTDxIVFCCnmpC+ZADCWws4EE5YIXY6KWKxvWzUNud3ZkpBe3szuNhJlBkUaRB0sj/MId3333m+e/zPP/3/64MDamqMmthXOoELhO41An87wnE6qwpihJHEGxK2HqfNmoSm2OMEqeRxmhPCEEQfKaYwmIuWRmUKXFIk8GK9pRnEMcig4WPotGeaZA6KhSSsgEkB9AQfiV3ev0M4lWAKNUCQE0BdO+01yyZQZzCtPXq+VSgRAlbOslgBd9rUX+bWOF1e2UdDrbrR5I2npROlDjx6NcysUizS7exU1LGSum4qjhn25xrRSQpceIAM4ljpCQpcd1HmQoJ0qT+gYAu0kZNxkQQJlZ4q7zymuLCDQ/sdMZKu+3NYsluORIUdaN+IBZZsnwtCWmoHvFf8YNkWyZvuVvMIT3YYj6UxFxHCcBtufA4ybYk5jr/blVtku/+0kF1hzjs0RyAOsEOHXDGSofszZWxygulzVrRHTogOZ4iryWOMXrO+SqdbpgZxflb1GuhOFfQGM1A2nhScmLJHvkmlU3FMmu3vPll7bOd5oi1Ln2y2uv/5PfKiMyXDPumld6ds3zOtbVbuYHbY3v5lq9mFCcFIF+IyEkSwJX/REAJ0OiTACD4Wfu1IPcCJBJmf8I0H2sebF5Y3aBFHZMT0i6tPAM8y+cMQC0OoB/rgO7neUHgd4CgqP1aCIXBPGr2J8xkV/Ng88Lqei3qmJyUdmnlceBZCgxArRVOiUGaNKnzG+KLAR9FxSJOXG1GGa32qqe16nqAar/+qOMcnSajfecro/UICAYSca0BGNfJasmFXet5bt5z5d1YR+zT6nH/mD9PfpImcbQcbNU9kjRWydJmO7EtkZYl0ilLyTDMEFcgCFV8fDGxsGSxJKRBmgAYkfnSKiOyQFqjHMYAMAEryuSs1M9NwOcPpkLd1eFgqxbU1n4thMOXz96xcVEXD/Aey7SP13W9cZe8aryotm7VQrIt87Y12bfi8KoDXaZhDptDugiAoYtV2noELOaSDY8SudNYKR3JtswG6zhtvEWPWLJSckGfvhqslzW8LC+FlQnphXs0HezQFnLAzZEWXTTUISCfyZQ4NQWs5g8T2xPpvhWHuw90aTrYrs2SNpZLp76mJ3Ukdk/8+3i3+4SdKz+dz97xzqKukJ6kjU7JUWIQwoPsPyUQDk04+2JJu1xt/m4eMq/mQeBmPAZBW7SoY7G10i7X6yfV+6rfcgurqQWfa78W6AB6o9gaPRUldnqItVc9rekkAPP0Rx3Xoxfihf4rFYojiNr4+JLDwordLwlpiPVEVZ8vrbJaFkjrWV7IOuWF5JS0TEO9k7hCmYo8DKC+Oup7v3gd3g/u+47nbnIr7jJ33HXcTtd2N00unTwQ6hLDxGgI9SrUrjOeVQCjXVZLjoPEaHCvcfOe6+ycXDp5wLnK7XRtp8ld5o47uxzP3eS2eB3eD8G4OuqHRpAyZSrn1UJ6t6o2xTKCMGG66m3OH7orv/i4M1Z6xX4vdmM8H39DW/WIjkgna8hzkAH2V0Yrz5XeTbWlqpkeLQdb9SZuA26IYpbPoWaL2cgjuoc+tsi43Cjz/q0XusAWkgxzyarNB2wx2mWdPJVqS9UyPcm2zD1WjySNldLBIIdP7U+eQ80KkZmbS5avLyiTOvcBjzIVeZQ0qaCijvon2ie6J37VSrBDB3hUuunCxaYcXUqq+PhnHGQfJrYl0qEARBWwtai/TYZ22plmp2Nn2el9/85Oz/oLTT0Cs/5KOasw6/+VuEzgUuMygUuNWU/gT9z+h8TNt2sEAAAAAElFTkSuQmCC">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .key {
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+        }
+        .value {
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        Enter URL: <input type="text" name="url"><br>
+        <input type="button" value="Submit" onclick="scrape()">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function scrape() {
+            var url = $('input[name="url"]').val();
+            console.log(url);
+
+            $.ajax({
+                url: 'any available api gateway link',
+                type: 'POST',
+                dataType: 'json',
+<!--                mode: 'no-cors',-->
+                contentType: 'application/json',
+                data: JSON.stringify({url: url}),
+                success: function(data) {
+                    console.log(data);
+                    var resultDiv = $('#result');
+                    resultDiv.empty(); // clear results of the previous request
+                    var maxLength = 0; // the length of the biggest key
+                    for (var key in data) {
+                        if (key.length > maxLength) {
+                            maxLength = key.length;
+                        }
+                    }
+                    for (var key in data) {
+                        var keySpan = $('<span>').addClass('key').text(key + ':');
+                        var valueSpan = $('<span>').addClass('value').text(data[key]);
+                        resultDiv.append(keySpan);
+                        resultDiv.append(valueSpan);
+                        for (var i = key.length; i < maxLength; i++) {
+                            resultDiv.append('&nbsp;'); // adding spaces
+                        }
+                        resultDiv.append($('<br>'));
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
